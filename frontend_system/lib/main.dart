@@ -7,7 +7,8 @@ import 'package:window_size/window_size.dart' show setWindowMinSize;
 
 void main() {
   runApp(const MyApp());
-  setWindowMinSize(Size(Constants.window_initiate_width, Constants.window_initiate_height));
+  setWindowMinSize(
+      Size(Constants.window_initiate_width, Constants.window_initiate_height));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +21,6 @@ class MyApp extends StatelessWidget {
       title: '客户关系管理系统',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightThemeData,
-      darkTheme: AppTheme.darkThemeData,
       home: const HomePage(),
     );
   }
