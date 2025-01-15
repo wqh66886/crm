@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_system/core/configs/theme/app_colors.dart';
+import 'package:frontend_system/core/configs/theme/app_theme.dart';
 import 'package:frontend_system/core/constants/constants.dart';
 
 class GeneralPage extends StatefulWidget {
@@ -24,6 +25,7 @@ class _GeneralPageState extends State<GeneralPage> {
       body: Row(
         children: [
           Drawer(
+            backgroundColor: AppTheme.lightColorScheme.secondary,
             width: MediaQuery.of(context).size.width * .1,
             child: Padding(
               padding: const EdgeInsets.only(left: 10),
@@ -41,7 +43,9 @@ class _GeneralPageState extends State<GeneralPage> {
                     child: Text(
                       "实时概况",
                       style: TextStyle(
-                        color: _selectedIndex == 0 ? Colors.blue : Colors.white,
+                        color: _selectedIndex == 0 ? Colors.blue : Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -55,7 +59,9 @@ class _GeneralPageState extends State<GeneralPage> {
                     child: Text(
                       "日历",
                       style: TextStyle(
-                        color: _selectedIndex == 1 ? Colors.blue : Colors.white,
+                        color: _selectedIndex == 1 ? Colors.blue : Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
@@ -64,7 +70,7 @@ class _GeneralPageState extends State<GeneralPage> {
             ),
           ),
           VerticalDivider(
-            color: Colors.grey,
+            color: Colors.grey.shade300,
           ),
           Expanded(
             child: Constants.generals[_selectedIndex],

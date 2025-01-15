@@ -20,13 +20,9 @@ class AuthField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        hintStyle: TextStyle(
-          color: AppColors.whiteColor,
-        ),
         hintText: hintText,
         prefixIcon: Icon(
           prefixIcon,
-          color: AppColors.whiteColor,
         ),
       ),
       obscureText: isObscureText!,

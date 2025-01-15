@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend_system/core/configs/theme/app_colors.dart';
+import 'package:frontend_system/core/configs/theme/app_theme.dart';
 import 'package:frontend_system/core/constants/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,47 +24,56 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppTheme.lightColorScheme.secondary,
+        bottom: PreferredSize(
+          preferredSize: Size.fromHeight(1.0), // 设置底部线条的高度
+          child: Container(
+            color: Colors.grey.shade300, // 设置线条颜色
+            height: 1.0, // 设置线条的高度
+          ),
+        ),
         title: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              SizedBox(
-                width: 25,
-                height: 25,
-                child: Image.asset("assets/images/logo.png"),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  InkWell(
+                  GestureDetector(
                     onTap: () {},
-                    child: SizedBox(
-                      width: 25,
-                      height: 25,
-                      child: Image.asset("assets/images/calendar.png"),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: SizedBox(
-                      width: 25,
-                      height: 25,
-                      child: Image.asset("assets/images/document.png"),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: SizedBox(
-                      width: 25,
-                      height: 25,
-                      child: Image.asset("assets/images/bell.png"),
+                    child: Tooltip(
+                      message: "通知",
+                      child: SizedBox(
+                        width: 25,
+                        height: 25,
+                        child: Stack(
+                          children: [
+                            Icon(CupertinoIcons.bell),
+                            Positioned(
+                              right: 0,
+                              child: Container(
+                                width: 15,
+                                height: 15,
+                                decoration: BoxDecoration(
+                                  color: Colors.redAccent,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    "1",
+                                    style: TextStyle(
+                                      color: Colors.white70,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -70,18 +81,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                   GestureDetector(
                     onTap: () {},
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 30,
-                          height: 30,
-                          child: Image.asset("assets/images/avatar.png"),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text("管理员"),
-                      ],
+                    child: Tooltip(
+                      message: "管理员",
+                      child: SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: Image.asset("assets/images/avatar.png"),
+                      ),
                     ),
                   ),
                 ],
@@ -93,11 +99,10 @@ class _HomePageState extends State<HomePage> {
       body: Row(
         children: [
           NavigationRail(
-            backgroundColor: AppColors.backgroundColor,
+            backgroundColor: AppTheme.lightColorScheme.secondary,
             extended: false,
             labelType: NavigationRailLabelType.all,
             elevation: 1,
-            useIndicator: false,
             destinations: Constants.destinations,
             selectedIndex: _selectedIndex,
             onDestinationSelected: _onDestinationSelected,
