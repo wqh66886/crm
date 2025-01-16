@@ -21,8 +21,8 @@ class _GeneralPageState extends State<GeneralPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
+    return SafeArea(
+      child: Row(
         children: [
           Drawer(
             backgroundColor: AppTheme.lightColorScheme.secondary,

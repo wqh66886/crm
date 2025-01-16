@@ -4,7 +4,14 @@ import 'package:frontend_system/futures/approve/pages/approve_page.dart';
 import 'package:frontend_system/futures/business_opportunity/pages/business_opportunity_page.dart';
 import 'package:frontend_system/futures/client/pages/client_page.dart';
 import 'package:frontend_system/futures/clue/pages/clue_page.dart';
+import 'package:frontend_system/futures/commission/pages/commission_approve_page.dart';
+import 'package:frontend_system/futures/commission/pages/commission_business_opportunity_page.dart';
+import 'package:frontend_system/futures/commission/pages/commission_client_page.dart';
+import 'package:frontend_system/futures/commission/pages/commission_clue_page.dart';
 import 'package:frontend_system/futures/commission/pages/commission_page.dart';
+import 'package:frontend_system/futures/commission/pages/commission_refund_page.dart';
+import 'package:frontend_system/futures/commission/pages/commission_todo_page.dart';
+import 'package:frontend_system/futures/commission/pages/expiring_contract_page.dart';
 import 'package:frontend_system/futures/data/pages/data_page.dart';
 import 'package:frontend_system/futures/general/pages/calendar_page.dart';
 import 'package:frontend_system/futures/general/pages/general_page.dart';
@@ -52,7 +59,7 @@ class Constants {
         enableTooltip: true,
         xValueMapper: (SalesData sales, _) => sales.weekday,
         yValueMapper: (SalesData sales, _) => sales.weekSales,
-        // Enable data label
+        name: '回款金额',
         dataLabelSettings: DataLabelSettings(isVisible: true),
       )
     ];
@@ -107,4 +114,14 @@ class Constants {
     RealTimeOverview(),
     CalendarPage(),
   ];
+
+  static Map<String, Widget> commissions = {
+    "待联系线索": CommissionCluePage(),
+    "待联系客户": CommissionClientPage(),
+    "待联系商机": CommissionBusinessOpportunityPage(),
+    "待联系审批": CommissionApprovePage(),
+    "待联系回款": CommissionRefundPage(),
+    "待处理任务": CommissionTodoPage(),
+    "即将到期合同": ExpiringContractPage(),
+  };
 }

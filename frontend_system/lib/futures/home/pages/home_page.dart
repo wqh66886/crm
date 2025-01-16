@@ -24,7 +24,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppTheme.lightColorScheme.secondary,
+        backgroundColor: Color(0xFFEFF3F3),
+        elevation: 0,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(1.0), // 设置底部线条的高度
           child: Container(
